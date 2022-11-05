@@ -61,8 +61,8 @@ class Level:
 		self.coin_sprites = self.create_tile_group(coin_layout,'coins')
 
 		# foreground palms 
-		fg_palm_layout = import_csv_layout(level_data['fg palms'])
-		self.fg_palm_sprites = self.create_tile_group(fg_palm_layout,'fg palms')
+		#fg_palm_layout = import_csv_layout(level_data['fg palms'])
+		#self.fg_palm_sprites = self.create_tile_group(fg_palm_layout,'fg palms')
 
 		# background palms 
 		#bg_palm_layout = import_csv_layout(level_data['bg palms'])
@@ -108,11 +108,11 @@ class Level:
 						if val == '0': sprite = Coin(tile_size,x,y,'./graphics/coins/gold',5)
 						if val == '1': sprite = Coin(tile_size,x,y,'./graphics/coins/silver',1)
 
-					if type == 'fg palms':
+					#if type == 'fg palms':
 						#if val == '0': 
-						sprite = Palm(tile_size,x,y,'./graphics/terrain/palm_small',38)
+						#sprite = Palm(tile_size,x,y,'./graphics/terrain/palm_small',38)
 						#if val == '1': 
-						sprite = Palm(tile_size,x,y,'./graphics/terrain/palm_large',64)
+						#sprite = Palm(tile_size,x,y,'./graphics/terrain/palm_large',64)
 
 					#if type == 'bg palms':
 					#	sprite = Palm(tile_size,x,y,'./graphics/terrain/palm_bg',64)
@@ -157,7 +157,7 @@ class Level:
 	def horizontal_movement_collision(self):
 		player = self.player.sprite
 		player.collision_rect.x += player.direction.x * player.speed
-		collidable_sprites = self.terrain_sprites.sprites() + self.crate_sprites.sprites() + self.fg_palm_sprites.sprites()
+		collidable_sprites = self.terrain_sprites.sprites() + self.crate_sprites.sprites() #+ self.fg_palm_sprites.sprites()
 		
 		for sprite in collidable_sprites:
 			if sprite.rect.colliderect(player.collision_rect):
@@ -178,7 +178,7 @@ class Level:
 	def vertical_movement_collision(self):
 		player = self.player.sprite
 		player.apply_gravity()
-		collidable_sprites = self.terrain_sprites.sprites() + self.crate_sprites.sprites() + self.fg_palm_sprites.sprites()
+		collidable_sprites = self.terrain_sprites.sprites() + self.crate_sprites.sprites() #+ self.fg_palm_sprites.sprites()
 
 		for sprite in collidable_sprites:
 			if sprite.rect.colliderect(player.collision_rect):
@@ -298,8 +298,8 @@ class Level:
 		self.coin_sprites.draw(self.display_surface)
 
 		# foreground palms
-		self.fg_palm_sprites.update(self.world_shift)
-		self.fg_palm_sprites.draw(self.display_surface)
+		#self.fg_palm_sprites.update(self.world_shift)
+		#self.fg_palm_sprites.draw(self.display_surface)
 
 		
 
