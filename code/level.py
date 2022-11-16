@@ -137,8 +137,8 @@ class Level:
 					self.player.add(sprite)
 					
 				if val == '1':
-					hat_surface = pygame.image.load('./graphics/character/hat.png').convert_alpha()
-					sprite = StaticTile(tile_size,x,y,hat_surface)
+					bacon1_surface = pygame.image.load('./graphics/character/bacon1.png').convert_alpha()
+					sprite = StaticTile(tile_size,x,y,bacon1_surface)
 					self.goal.add(sprite)
 
 	def enemy_collision_reverse(self):
@@ -254,6 +254,7 @@ class Level:
 					self.player.sprite.direction.y = -15
 					explosion_sprite = ParticleEffect(enemy.rect.center,'explosion')
 					self.explosion_sprites.add(explosion_sprite)
+					self.change_coins(10)
 					enemy.kill()
 				else:
 					self.player.sprite.get_damage()
@@ -301,6 +302,7 @@ class Level:
 		#self.fg_palm_sprites.update(self.world_shift)
 		#self.fg_palm_sprites.draw(self.display_surface)
 
+
 		
 
 		# player sprites
@@ -321,6 +323,8 @@ class Level:
 
 		self.check_coin_collisions()
 		self.check_enemy_collisions()
+
+		
 
 		# water 
 		self.water.draw(self.display_surface,self.world_shift)
