@@ -17,14 +17,25 @@ if Path(highscore_file).is_file() == False:
     tmp_list3 = ['xxx', 0]
     tmp_list4 = ['xxx', 0]
     tmp_list5 = ['xxx', 0]
+    tmp_list6 = ['xxx', 0]
+    tmp_list7 = ['xxx', 0]
+    tmp_list8 = ['xxx', 0]
+    tmp_list9 = ['xxx', 0]
+    tmp_list10 = ['xxx', 0]
     scoreboard.append(tmp_list1)
     scoreboard.append(tmp_list2)
     scoreboard.append(tmp_list3)
     scoreboard.append(tmp_list4)
     scoreboard.append(tmp_list5)
+    scoreboard.append(tmp_list6)
+    scoreboard.append(tmp_list7)
+    scoreboard.append(tmp_list8)
+    scoreboard.append(tmp_list9)
+    scoreboard.append(tmp_list10)
+
     with open("highscore.csv", 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
-        for x in range(5):
+        for x in range(10):
             writer.writerow(scoreboard[x])
 else:
     with open("highscore.csv", 'r', newline='') as csvfile:
@@ -131,12 +142,12 @@ class Game:
                     name.append(text) 
                     name.append(self.score)
                     scoreboard.append(name)
-                    for x in range(5):
+                    for x in range(10):
                         if self.score > int(scoreboard[x][1]):
                             tmp = 1
-                            scoreboard.remove(scoreboard[4])
-                            while 4 - tmp >= x:
-                                scoreboard[4 - tmp + 1] = scoreboard[4 - tmp]
+                            scoreboard.remove(scoreboard[9])
+                            while 9 - tmp >= x:
+                                scoreboard[9 - tmp + 1] = scoreboard[9 - tmp]
                                 tmp += 1
                                 print(scoreboard)
                             scoreboard[x] = name
@@ -145,7 +156,7 @@ class Game:
 
                     with open("highscore.csv", 'w', newline='') as csvfile:
                         writer = csv.writer(csvfile, delimiter=',')
-                        for x in range(5):
+                        for x in range(10):
                             writer.writerow(scoreboard[x]) 
                     
                     self.coins = 0

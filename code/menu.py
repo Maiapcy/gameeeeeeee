@@ -63,10 +63,12 @@ def scoreboard():
             reader = csv.reader(csvfile, delimiter=',')
             for x, x1 in enumerate(reader):
                 for y, y1 in enumerate(x1):
+                    if x%2 == 0:
+
                     #player name
-                    BOARD_TEXT = get_font(25).render(f"{y1}", True, "Black")
-                    BOARD_RECT = BOARD_TEXT.get_rect(center=(450 +(y * 370), 200 + (x * 80)))
-                    SCREEN.blit(BOARD_TEXT, BOARD_RECT)
+                        BOARD_TEXT = get_font(25).render(f"{y1}", True, "Black")
+                        BOARD_RECT = BOARD_TEXT.get_rect(center=(450 +(y *370), 200 + ((x+1)* 35)))
+                        SCREEN.blit(BOARD_TEXT, BOARD_RECT)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
