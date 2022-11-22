@@ -149,9 +149,9 @@ class Game:
                             while 9 - tmp >= x:
                                 scoreboard[9 - tmp + 1] = scoreboard[9 - tmp]
                                 tmp += 1
-                                print(scoreboard)
+                                
                             scoreboard[x] = name
-                            print(scoreboard)
+                            
                             break
 
                     with open("highscore.csv", 'w', newline='') as csvfile:
